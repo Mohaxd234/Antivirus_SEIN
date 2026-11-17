@@ -158,7 +158,7 @@ if [ "$sospechosos" -gt 0 ]; then
                         # Registra la eliminación en el informe.
                         echo "Archivo eliminado: $archivo"
                         ((eliminados++))
-                        echo "Archivos eliminados: $eliminados" >> "$INFORME"
+                        echo "Archivo eliminado: $archivo" >> "$INFORME"
 
                     else
                         # Si falla el borrado, informa del error.
@@ -170,29 +170,29 @@ if [ "$sospechosos" -gt 0 ]; then
         done
 
         # Muestra y registra cuántos archivos se eliminaron.
-        echo 
-        ...
+        echo "Archivos eliminados: $eliminados"
+        echo "Archivos eliminados: $eliminados" >> "$INFORME"
 
     elif [ "$respuesta" = "n" ]; then
 
         # El usuario ha rechazado la eliminación:
         # no borres nada y deja constancia en el informe.
-        ...
-        ...
+        echo "El usuario ha rechazado la eliminación"
+        echo "El usuario ha rechazado la eliminación" >> "$INFORME"
 
     else
 
         # Si escribe otra cosa, no borres ningún archivo.
-        ...
-        ...
+        echo "Respuesta no valida. No se eliminará ningún archivo"
+        echo "Respuesta no valida. No se eliminará ningún archivo" >> "$INFORME"
 
     fi
 
 else
 
     # No se han encontrado sospechosos: no hay que preguntar.
-    ...
-    ...
+    echo "No se han encontrado sospechosos"
+    echo "No se han encontrado sospechosos" >> "$INFORME"
 
 fi
 
